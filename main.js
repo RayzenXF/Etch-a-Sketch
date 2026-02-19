@@ -8,8 +8,13 @@ for (let i = 0; i < 256; i++) {
 
 const squares = document.querySelectorAll(".square");
 
+const brushColor = document.querySelector("#brush-color");
+let color = "black";
+
 squares.forEach(squares => {
     squares.addEventListener("mouseover", () => {
-        squares.style.backgroundColor = "black";
-    });    
+        color = brushColor.value;
+        // console.log(color); debug
+        squares.style.backgroundColor = color;
+    });
 });
