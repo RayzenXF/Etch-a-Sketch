@@ -12,6 +12,15 @@ const squares = document.querySelectorAll(".square");
 const brushColor = document.querySelector("#brush-color");
 let color = "black";
 
+const gridSize = document.querySelector("#grid-size");
+const rangeValue = document.querySelector("#range-value");
+
+rangeValue.textContent = gridSize.value;
+
+gridSize.addEventListener("input", () => {
+    rangeValue.textContent = gridSize.value;
+});
+
 squares.forEach(squares => {
     squares.addEventListener("mouseover", () => {
         color = brushColor.value;
