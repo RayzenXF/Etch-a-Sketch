@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(111, 111, 111);
+}
+
 #container {
     display: flex;
     flex-wrap: wrap;
