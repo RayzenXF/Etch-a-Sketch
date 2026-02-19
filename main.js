@@ -6,8 +6,10 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(square);
 };
 
-const squares = document.querySelector(".square");
+const squares = document.querySelectorAll(".square");
 
-squares.addEventListener("mouseover", () => {
-    squares.style.backgroundColor = "black";
+squares.forEach(squares => {
+    squares.addEventListener("mouseover", () => {
+        squares.style.backgroundColor = "black";
+    });    
 });
