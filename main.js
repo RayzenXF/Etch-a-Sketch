@@ -35,3 +35,11 @@ squares.forEach(square => {
 function paint(event) {
     event.target.style.backgroundColor = brushColor.value;
 };
+
+function clearGrid() {
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+    });
+};
+
+clearButton.addEventListener("click", clearGrid);
