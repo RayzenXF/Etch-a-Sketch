@@ -15,10 +15,11 @@ let color = "black";
 const gridSize = document.querySelector("#grid-size");
 const rangeValue = document.querySelector("#range-value");
 
-rangeValue.textContent = gridSize.value;
+rangeValue.textContent = `${gridSize.value} x ${gridSize.value}`;
 
 gridSize.addEventListener("input", () => {
-    rangeValue.textContent = gridSize.value;
+    rangeValue.textContent = `${gridSize.value} x ${gridSize.value}`;
+    changeGridSize();
 });
 
 squares.forEach(squares => {
