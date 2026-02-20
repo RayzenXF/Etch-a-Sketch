@@ -2,6 +2,7 @@ const container = document.querySelector("#container");
 const clearButton = document.querySelector("#clear-btn");
 const gridSizeInput = document.querySelector("#grid-size");
 const gridValueTxt = document.querySelector("#range-value");
+const brushColor = document.querySelector("#brush-color");
 
 function createGrid() {
     let containerSize = 400;
@@ -24,3 +25,13 @@ function createGrid() {
 };
 
 createGrid();
+
+const squares = document.querySelectorAll(".square");
+
+squares.forEach(square => {
+    square.addEventListener("mouseover", paint);
+});
+
+function paint(event) {
+    event.target.style.backgroundColor = brushColor.value;
+};
