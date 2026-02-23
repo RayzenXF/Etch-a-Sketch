@@ -4,6 +4,8 @@ const gridSizeInput = document.querySelector("#grid-size");
 const gridValueTxt = document.querySelector("#range-value");
 const brushColor = document.querySelector("#brush-color");
 
+let isMouseDown = false;
+
 function createGrid() {
     let containerSize = 400;
     let gridSize = 16;
@@ -28,11 +30,21 @@ createGrid();
 
 const squares = document.querySelectorAll(".square");
 
+container.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    isMouseDown = true;
+});
+
+window.addEventListener("mouseup", () => {
+    isMouseDown = false;
+});
+
 squares.forEach(square => {
     square.addEventListener("mouseover", paint);
 });
 
 function paint(event) {
+    if (!isMouseDown) return;
     event.target.style.backgroundColor = brushColor.value;
 };
 
