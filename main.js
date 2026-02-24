@@ -3,6 +3,8 @@ const clearButton = document.querySelector("#clear-btn");
 const gridSizeInput = document.querySelector("#grid-size");
 const gridValueTxt = document.querySelector("#range-value");
 const brushColor = document.querySelector("#brush-color");
+const paintButton = document.querySelector("#paint-btn");
+const eraserButton = document.querySelector("#eraser-btn");
 
 let gridSize = 16;
 
