@@ -29,6 +29,17 @@ function createGrid(gridSize) {
 
 createGrid(gridSize);
 
+function paint(event) {
+    if (!isMouseDown) return;
+    event.target.style.backgroundColor = brushColor.value;
+};
+
+function clearGrid() {
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+    });
+};
+
 const squares = document.querySelectorAll(".square");
 
 container.addEventListener("mousedown", (event) => {
@@ -43,16 +54,5 @@ window.addEventListener("mouseup", () => {
 squares.forEach(square => {
     square.addEventListener("mouseover", paint);
 });
-
-function paint(event) {
-    if (!isMouseDown) return;
-    event.target.style.backgroundColor = brushColor.value;
-};
-
-function clearGrid() {
-    squares.forEach(square => {
-        square.style.backgroundColor = "white";
-    });
-};
 
 clearButton.addEventListener("click", clearGrid);
