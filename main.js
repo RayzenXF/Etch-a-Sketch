@@ -3,6 +3,7 @@ const clearButton = document.querySelector("#clear-btn");
 const gridSizeInput = document.querySelector("#grid-size");
 const gridValueTxt = document.querySelector("#range-value");
 const brushColor = document.querySelector("#brush-color");
+
 let gridSize = 16;
 
 let isMouseDown = false;
@@ -66,12 +67,6 @@ window.addEventListener("mouseup", () => {
     isMouseDown = false;
 });
 
-container.addEventListener("mouseover", (event) => {
-    if (!isMouseDown) return;
-
-    if (event.target.classList.contains("square")) {
-        event.target.style.backgroundColor = brushColor.value;
-    }
-});
+container.addEventListener("mouseover", paint);
 
 clearButton.addEventListener("click", clearGrid);
