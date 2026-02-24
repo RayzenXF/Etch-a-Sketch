@@ -3,20 +3,21 @@ const clearButton = document.querySelector("#clear-btn");
 const gridSizeInput = document.querySelector("#grid-size");
 const gridValueTxt = document.querySelector("#range-value");
 const brushColor = document.querySelector("#brush-color");
+let gridSize = 16;
 
 let isMouseDown = false;
 
-function createGrid() {
+function createGrid(gridSize) {
     let containerSize = 400;
-    let gridSize = 16;
-    let squareSize = containerSize / gridSize;
+    let newSize = gridSize;
+    let squareSize = containerSize / newSize;
 
     container.innerHTML = "";
 
     container.style.width = `${containerSize}px`;
     container.style.height = `${containerSize}px`;
 
-    for (let i = 0; i < gridSize * gridSize; i++) {
+    for (let i = 0; i < newSize * newSize; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
         container.appendChild(square);
@@ -26,7 +27,7 @@ function createGrid() {
     };
 };
 
-createGrid();
+createGrid(gridSize);
 
 const squares = document.querySelectorAll(".square");
 
