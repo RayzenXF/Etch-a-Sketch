@@ -6,8 +6,10 @@ const brushColor = document.querySelector("#brush-color");
 const paintButton = document.querySelector("#paint-btn");
 const eraserButton = document.querySelector("#eraser-btn");
 
-let gridSize = 16;
+paintButton.classList.add("active");
 
+let mode = "paint";
+let gridSize = 16;
 let isMouseDown = false;
 
 function createGrid(gridSize) {
@@ -32,9 +34,30 @@ function createGrid(gridSize) {
 
 createGrid(gridSize);
 
+function switchToEraser() {
+    paintButton.classList.remove("active");
+    eraserButton.classList.add("active");
+    mode = "eraser";
+};
+
+function switchToPaint() {
+    eraserButton.classList.remove("active");
+    paintButton.classList.add("active");
+    mode = "paint";    
+};
+
+paintButton.addEventListener("click", switchToPaint);
+
+eraserButton.addEventListener("click", switchToEraser);
+
+
 function paint(event) {
     if (!isMouseDown) return;
-    event.target.style.backgroundColor = brushColor.value;
+    if (mode === "paint") {
+        event.target.style.backgroundColor = brushColor.value;
+    } else if (mode === "eraser") {
+        event.target.style.backgroundColor = "white";
+    }
 };
 
 function clearGrid() {
