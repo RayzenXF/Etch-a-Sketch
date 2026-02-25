@@ -5,6 +5,7 @@ const gridValueTxt = document.querySelector("#range-value");
 const brushColor = document.querySelector("#brush-color");
 const paintButton = document.querySelector("#paint-btn");
 const eraserButton = document.querySelector("#eraser-btn");
+const rainbowButton = document.querySelector("#rainbow-btn");
 
 paintButton.classList.add("active");
 
@@ -36,20 +37,40 @@ createGrid(gridSize);
 
 function switchToEraser() {
     paintButton.classList.remove("active");
+    rainbowButton.classList.remove("active");
     eraserButton.classList.add("active");
     mode = "eraser";
 };
 
 function switchToPaint() {
     eraserButton.classList.remove("active");
+    rainbowButton.classList.remove("active");
     paintButton.classList.add("active");
     mode = "paint";    
+};
+
+function switchToRainbow() {
+    eraserButton.classList.remove("active");
+    paintButton.classList.remove("active");
+    rainbowButton.classList.add("active");
+    mode = "rainbow";    
 };
 
 paintButton.addEventListener("click", switchToPaint);
 
 eraserButton.addEventListener("click", switchToEraser);
 
+rainbowButton.addEventListener("click", switchToRainbow);
+
+function rainbow() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    const rgb = `${r}, ${g}, ${b}`;
+
+    return rgb;
+}
 
 function paint(event) {
     if (!isMouseDown) return;
@@ -57,6 +78,10 @@ function paint(event) {
         event.target.style.backgroundColor = brushColor.value;
     } else if (mode === "eraser") {
         event.target.style.backgroundColor = "white";
+    } else if (mode === "rainbow") {
+        const rgbPaint = rainbow();
+        // console.log(rgbPaint); // debug
+        event.target.style.backgroundColor = `rgb(${rgbPaint})`;
     }
 };
 
