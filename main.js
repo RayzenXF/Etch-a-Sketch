@@ -111,6 +111,7 @@ const squares = document.querySelectorAll(".square");
 container.addEventListener("mousedown", (event) => {
     event.preventDefault();
     isMouseDown = true;
+    paint(event);
 });
 
 window.addEventListener("mouseup", () => {
