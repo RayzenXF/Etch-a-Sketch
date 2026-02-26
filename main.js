@@ -14,7 +14,7 @@ let gridSize = 16;
 let isMouseDown = false;
 
 function createGrid(gridSize) {
-    let containerSize = 400;
+    let containerSize = 500;
     let newSize = gridSize;
     let squareSize = containerSize / newSize;
 
