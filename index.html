@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch! | By RayzenXF</title>
 
+    <link rel="icon" type="image/x-icon" href="/images/paint-brush.png">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <input type="color" name="brush-color" id="brush-color" value="#000000">
 
-    <button id="paint-btn">Paint</button>
-    <button id="eraser-btn">Eraser</button>
-    <button id="clear-btn">Clear</button>
-    <button id="rainbow-btn">RAINBOW</button>
+    <header>
+        <h1 id="title">Etch-a-Sketch!</h1>
+    </header>
 
-    <label for="grid-size">Size: <span id="range-value"></span></label>
+    <main>
+        <div class="buttons-container">
+            <label class="text" for="brush-color"><b>Color:</b></label>
+            <input type="color" name="brush-color" id="brush-color" value="#000000">
+            
+            <button class="buttons" id="paint-btn">Paint</button>
+            <button class="buttons" id="eraser-btn">Eraser</button>
+            <button class="buttons" id="clear-btn">Clear</button>
+            <button class="buttons" id="rainbow-btn">RAINBOW</button>
 
-    <input type="range" name="grid-size" id="grid-size" value="16" max="100" min="1">
+            <label class="text" for="grid-size"><b>Size: <span id="range-value"></span></b></label>
 
-    <div id="squares-container"></div>
+            <input type="range" name="grid-size" id="grid-size" list="markers" value="16" max="100" min="1">
+            <datalist id="markers">
+                <option value="4"></option>
+                <option value="16"></option>
+                <option value="32"></option>
+                <option value="64"></option>
+                <option value="100"></option>
+            </datalist>
+        </div>
+        <div id="squares-container"></div>
+    </main>
 
     <script src="main.js"></script>
 </body>
