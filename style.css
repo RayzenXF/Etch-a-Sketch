@@ -2,7 +2,7 @@ body {
     background-color: rgb(111, 111, 111);
 }
 
-#container {
+#squares-container {
     display: flex;
     flex-wrap: wrap;
 }

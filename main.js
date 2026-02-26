@@ -1,4 +1,4 @@
-const container = document.querySelector("#container");
+const container = document.querySelector("#squares-container");
 const clearButton = document.querySelector("#clear-btn");
 const gridSizeInput = document.querySelector("#grid-size");
 const gridValueTxt = document.querySelector("#range-value");
